@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private int score = 0;
     [SerializeField]
     public float speed;
     public Rigidbody rb;
@@ -17,5 +18,14 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(-speed * Time.deltaTime, 0, 0);
         if (Input.GetKey("d"))
             rb.AddForce(speed * Time.deltaTime, 0, 0);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Pickup")
+        {
+            Destroy(other.gameObject);
+            score += 1;
+            Debug.Log("Score: " + score);
+        }
     }
 }
