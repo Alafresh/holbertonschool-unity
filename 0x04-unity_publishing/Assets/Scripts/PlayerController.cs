@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Joystick joystick;
     public Image winLoseBG;
     public Text winLoseText;
     public Text scoreText;
@@ -16,6 +17,17 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
     void Update()
     {
+        if (joystick.Horizontal >= .2f)
+            rb.AddForce(speed * Time.deltaTime, 0, 0);
+        if (joystick.Horizontal <= -.2f)
+            rb.AddForce(-speed * Time.deltaTime, 0, 0);
+        if (joystick.Vertical >= .2f)
+            rb.AddForce(0, 0, speed * Time.deltaTime);
+        if (joystick.Vertical <= -.2f)
+            rb.AddForce(0, 0, -speed * Time.deltaTime);
+        else
+            rb.AddForce(0, 0, 0);
+
         if (health == 0)
         {
             DisplayLose();
