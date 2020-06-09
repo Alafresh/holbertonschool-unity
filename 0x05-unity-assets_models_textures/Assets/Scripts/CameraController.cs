@@ -4,21 +4,39 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Range(0.01f, 1.0f)]
-    public float smoothFactor = 0.5f;
-    [SerializeField]
-    public GameObject player;
-    public Vector3 offset;
-    public float rotationSpeed;
+    [SerializeField] private Transform target;
+    public float rotSpeed = 1.5f;
+    private float _rotY;
+    private Vector3 _offset;
+    Quaternion tmp;
+
+    void Start()
+    {
+        _rotY = transform.eulerAngles.y;
+        _offset = target.position - transform.position;
+        tmp = Quaternion.Euler(0, _rotY, 0);
+    }
+
     void LateUpdate()
     {
-        Quaternion camAngle =
-            Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
+        transform.position = target.position - (tmp * _offset);
+        transform.LookAt(target);
+        if (Input.GetMouseButton(1))
+        {
+            float horInput = Input.GetAxis("Horizontal");
+            if (horInput != 0)
+            {
+                _rotY += horInput * rotSpeed;
+            }
+            else
+            {
+                _rotY += Input.GetAxis("Mouse X") * rotSpeed * 3;
+            }
 
-        offset = camAngle * offset;
-        transform.position = player.transform.position + offset;
-        Vector3 newPos = player.transform.position + offset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothFactor);
-        transform.LookAt(player.transform);
+            Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
+            transform.position = target.position - (rotation * _offset);
+            transform.LookAt(target);
+            tmp = rotation;
+        }
     }
 }
