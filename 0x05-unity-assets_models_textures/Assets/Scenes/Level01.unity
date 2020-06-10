@@ -1135,8 +1135,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.759434, g: 0.942574, b: 1, a: 1}
+  m_Intensity: 1.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3843,7 +3843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ed90d523d6c18a74a93b59ebe2d9500e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4000003
+      value: 0.81
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ed90d523d6c18a74a93b59ebe2d9500e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9283,7 +9283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 52df1e82f5212fe4da0fe82fd5664196, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 52df1e82f5212fe4da0fe82fd5664196, type: 3}
       propertyPath: m_LocalPosition.z
