@@ -6,8 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField]
-    public Rigidbody rb;
+    [SerializeField] public Rigidbody rb;
     public float speed;
     public float jumpForce;
     bool isOnGround;

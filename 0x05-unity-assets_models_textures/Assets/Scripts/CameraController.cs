@@ -5,36 +5,48 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    public float rotSpeed = 1.5f;
-    private float _rotY;
-    private Vector3 _offset;
+    public float rotSpeed = 0.3f;
+    private float rotY;
+    private float rotX;
+    private Vector3 offset;
     Quaternion tmp;
 
     void Start()
     {
-        _rotY = transform.eulerAngles.y;
-        _offset = target.position - transform.position;
-        tmp = Quaternion.Euler(0, _rotY, 0);
+        rotX = transform.eulerAngles.x;
+        rotY = transform.eulerAngles.y;
+        offset = target.position - transform.position;
+        tmp = Quaternion.Euler(0, rotY, 0);
     }
 
     void LateUpdate()
     {
-        transform.position = target.position - (tmp * _offset);
+        transform.position = target.position - (tmp * offset);
         transform.LookAt(target);
         if (Input.GetMouseButton(1))
         {
             float horInput = Input.GetAxis("Horizontal");
             if (horInput != 0)
             {
-                _rotY += horInput * rotSpeed;
+                rotY += horInput * rotSpeed;
             }
             else
             {
-                _rotY += Input.GetAxis("Mouse X") * rotSpeed * 3;
+                rotY += Input.GetAxis("Mouse X") * rotSpeed * 3;
             }
 
-            Quaternion rotation = Quaternion.Euler(0, _rotY, 0);
-            transform.position = target.position - (rotation * _offset);
+            float verInput = Input.GetAxis("Vertical");
+            if (verInput != 0)
+            {
+                rotX += verInput * rotSpeed;
+            }
+            else
+            {
+                rotX += Input.GetAxis("Mouse Y") * rotSpeed * 3;
+            }
+
+            Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
+            transform.position = target.position - (rotation * offset);
             transform.LookAt(target);
             tmp = rotation;
         }
