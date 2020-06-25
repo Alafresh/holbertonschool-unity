@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     private float rotX;
     private Vector3 offset;
     Quaternion tmp;
+    public bool isInverted;
 
     void Start()
     {
@@ -35,14 +36,30 @@ public class CameraController : MonoBehaviour
                 rotY += Input.GetAxis("Mouse X") * rotSpeed * 3;
             }
 
-            float verInput = Input.GetAxis("Vertical");
-            if (verInput != 0)
+            if (isInverted == true)
             {
-                rotX += verInput * rotSpeed;
+
+                float verInput = Input.GetAxis("Vertical");
+                if (verInput != 0)
+                {
+                    rotX += verInput * rotSpeed;
+                }
+                else
+                {
+                    rotX += -Input.GetAxis("Mouse Y") * rotSpeed * 3;
+                }
             }
             else
             {
-                rotX += Input.GetAxis("Mouse Y") * rotSpeed * 3;
+                float verInput = Input.GetAxis("Vertical");
+                if (verInput != 0)
+                {
+                    rotX += verInput * rotSpeed;
+                }
+                else
+                {
+                    rotX += Input.GetAxis("Mouse Y") * rotSpeed * 3;
+                }
             }
 
             Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
