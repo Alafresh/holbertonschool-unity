@@ -18,6 +18,11 @@ public class CameraController : MonoBehaviour
         rotY = transform.eulerAngles.y;
         offset = target.position - transform.position;
         tmp = Quaternion.Euler(0, rotY, 0);
+
+        if (PlayerPrefs.GetInt("Check") == 1)
+            isInverted = true;
+        else
+            isInverted = false;
     }
 
     void LateUpdate()
@@ -67,5 +72,13 @@ public class CameraController : MonoBehaviour
             transform.LookAt(target);
             tmp = rotation;
         }
+    }
+    public void isInvertedY()
+    {
+        isInverted = true;
+    }
+    public void isNotInvertedY()
+    {
+        isInverted = false;
     }
 }
