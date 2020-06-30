@@ -11,3 +11,5 @@
   - What the alpha value of a color is
   - How to set and change material colors with scripts
   - What are common accessibility concepts to consider
+# Play the game
+- [Here](https://a-la-fresh.itch.io/maze)
