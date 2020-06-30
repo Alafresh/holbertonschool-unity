@@ -9,10 +9,10 @@
 - [Saving Data in Unity: PlayerPrefs](https://www.youtube.com/watch?v=BgxbCej0GOg)
 - [Unity UI Optimization Tips](https://unity3d.com/how-to/unity-ui-optimization-tips)
 # UI Design
-- [Game UI Discoveries: What Players Want] (https://www.gamasutra.com/view/feature/132674/game_ui_discoveries_what_players_.php?)
-- [The Right to Play: Accessibility in Gaming] (https://medium.com/potato/the-right-to-play-accessibility-in-gaming-a954b01023f)
-- [How to Make Your Game UI Shine] (https://gameanalytics.com/blog/how-to-make-your-game-ui-shine-and-increase-conversions.html)
-- [6 Examples of UI Design to Study] (https://www.gamasutra.com/view/news/289637/6_examples_of_UI_design_that_every_game_developer_should_study.php)
+- [Game UI Discoveries: What Players Want](https://www.gamasutra.com/view/feature/132674/game_ui_discoveries_what_players_.php?)
+- [The Right to Play: Accessibility in Gaming](https://medium.com/potato/the-right-to-play-accessibility-in-gaming-a954b01023f)
+- [How to Make Your Game UI Shine](https://gameanalytics.com/blog/how-to-make-your-game-ui-shine-and-increase-conversions.html)
+- [6 Examples of UI Design to Study](https://www.gamasutra.com/view/news/289637/6_examples_of_UI_design_that_every_game_developer_should_study.php)
 # Learning Objectives
 - What is a Sprite
 - How is a Sprite different from a Texture
