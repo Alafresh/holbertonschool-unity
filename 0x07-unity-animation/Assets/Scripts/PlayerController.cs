@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("splat", true);
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("getUp", true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(3.5f);
         anim.SetBool("splat", false);
         anim.SetBool("getUp", false);
         tay.transform.localPosition = new Vector3(0.1f, -1f, 0.3f);
