@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
         if (isOnGround && Input.GetKey(KeyCode.Space))
         {
+            anim.SetBool("ground", true);
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "ground")
         {
             isOnGround = true;
+            anim.SetBool("ground", false);
         }
     }
 }
