@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject tay;
     [SerializeField] public Transform target;
     [SerializeField] public Rigidbody rb;
     public float velRotation = 200.0f;
@@ -12,6 +13,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     bool isOnGround;
     public Animator anim;
+    private void Start()
+    {
+        Vector3 parent = tay.transform.parent.position;
+    }
     void Update()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -50,9 +55,23 @@ public class PlayerController : MonoBehaviour
         }
         if (transform.position.y < -9f)
         {
-            anim.SetBool("isFalling", true);
             transform.position = new Vector3(0f, 40f, 0f);
+            anim.SetBool("isFalling", true);
+            StartCoroutine(fall());
         }
+    }
+    IEnumerator fall()
+    {
+        yield return new WaitForSeconds(1.5f);
+        anim.SetBool("isFalling", false);
+        anim.SetBool("splat", true);
+        yield return new WaitForSeconds(0.5f);
+        anim.SetBool("getUp", true);
+        yield return new WaitForSeconds(3f);
+        anim.SetBool("splat", false);
+        anim.SetBool("getUp", false);
+        tay.transform.localPosition = new Vector3(0.1f, -1f, 0.3f);
+        tay.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
     }
     private void OnCollisionEnter(Collision collision)
     {

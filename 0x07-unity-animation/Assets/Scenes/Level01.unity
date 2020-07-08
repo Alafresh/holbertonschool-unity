@@ -272,6 +272,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24b1208a759333c42879643a2b042ad8, type: 3}
+--- !u!1 &19099909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4044053590317357594, guid: 0941987c10626334a88557863585a986,
+    type: 3}
+  m_PrefabInstance: {fileID: 4044053590667495766}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &30361686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15404,6 +15410,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4044053588782555100, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044053588782555100, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.070118
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044053588782555100, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.035058975
+      objectReference: {fileID: 0}
     - target: {fileID: 4044053588782555103, guid: 0941987c10626334a88557863585a986,
         type: 3}
       propertyPath: m_Name
@@ -15473,6 +15494,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044053590317581882, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044053590317581882, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4044053590317581884, guid: 0941987c10626334a88557863585a986,
         type: 3}
@@ -16213,6 +16244,21 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755119409777982597, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: ty
+      value: 
+      objectReference: {fileID: 19099909}
+    - target: {fileID: 7755119409777982597, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: tay
+      value: 
+      objectReference: {fileID: 19099909}
+    - target: {fileID: 7968738765513130292, guid: 0941987c10626334a88557863585a986,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0941987c10626334a88557863585a986, type: 3}
