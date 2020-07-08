@@ -48,9 +48,10 @@ public class PlayerController : MonoBehaviour
                 transform.rotation = Quaternion.LookRotation(move);
             }
         }
-        if (transform.position.y < -10f)
+        if (transform.position.y < -9f)
         {
-            transform.position = new Vector3(0f, 20f, 0f);
+            anim.SetBool("isFalling", true);
+            transform.position = new Vector3(0f, 40f, 0f);
         }
     }
     private void OnCollisionEnter(Collision collision)
