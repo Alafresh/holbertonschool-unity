@@ -4,81 +4,19 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
-    public Transform target;
-    public float rotSpeed = 0.3f;
-    private float rotY;
-    private float rotX;
-    private Vector3 offset;
-    Quaternion tmp;
-    public bool isInverted;
-
-    void Start()
+    public playermove playerScript;
+    public GameObject[] elements;
+    public GameObject auxCamera;
+    void Update()
     {
-        rotX = transform.eulerAngles.x;
-        rotY = transform.eulerAngles.y;
-        offset = target.position - transform.position;
-        tmp = Quaternion.Euler(0, rotY, 0);
-
-        if (PlayerPrefs.GetInt("Check") == 1)
-            isInverted = true;
-        else
-            isInverted = false;
-    }
-
-    void LateUpdate()
-    {
-        transform.position = target.position - (tmp * offset);
-        transform.LookAt(target);
-        if (Input.GetMouseButton(1))
+        if (transform.position == new Vector3(0f, 2.5f, -6.25f))
         {
-            float horInput = Input.GetAxis("Horizontal");
-            if (horInput != 0)
+            foreach (GameObject i in elements)
             {
-                rotY += horInput * rotSpeed;
+                i.SetActive(true);
             }
-            else
-            {
-                rotY += Input.GetAxis("Mouse X") * rotSpeed * 3;
-            }
-
-            if (isInverted == true)
-            {
-
-                float verInput = Input.GetAxis("Vertical");
-                if (verInput != 0)
-                {
-                    rotX += verInput * rotSpeed;
-                }
-                else
-                {
-                    rotX += -Input.GetAxis("Mouse Y") * rotSpeed * 3;
-                }
-            }
-            else
-            {
-                float verInput = Input.GetAxis("Vertical");
-                if (verInput != 0)
-                {
-                    rotX += verInput * rotSpeed;
-                }
-                else
-                {
-                    rotX += Input.GetAxis("Mouse Y") * rotSpeed * 3;
-                }
-            }
-
-            Quaternion rotation = Quaternion.Euler(rotX, rotY, 0);
-            transform.position = target.position - (rotation * offset);
-            transform.LookAt(target);
-            tmp = rotation;
+            playerScript.enabled = true;
+            auxCamera.SetActive(false);
         }
-    }
-    public void isInvertedY()
-    {
-        isInverted = true;
-    }
-    public void isNotInvertedY()
-    {
-        isInverted = false;
     }
 }

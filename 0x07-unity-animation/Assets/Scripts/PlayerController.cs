@@ -13,10 +13,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     bool isOnGround;
     public Animator anim;
-    private void Start()
-    {
-        Vector3 parent = tay.transform.parent.position;
-    }
+    
     void Update()
     {
         float moveX = Input.GetAxis("Horizontal");
