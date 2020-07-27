@@ -12,6 +12,22 @@ public class playermove : MonoBehaviour
     public float jumpForce;
     bool isOnGround;
     public Animator anim;
+    public AudioClip runningGrass;
+    public AudioSource audioS;
+    public AudioSource landing;
+    public AudioClip landingGrass;
+
+    private void Start()
+    {
+        InvokeRepeating("PlaySound", 0.0f, 0.5f);
+    }
+    void PlaySound()
+    {
+        if (anim.GetBool("isMoving") && isOnGround)
+            audioS.PlayOneShot(runningGrass);
+        else
+            audioS.Stop();
+    }
 
     void Update()
     {
@@ -51,7 +67,7 @@ public class playermove : MonoBehaviour
         }
         if (transform.position.y < -9f)
         {
-            transform.position = new Vector3(0f, 40f, 0f);
+            transform.position = new Vector3(0f, 36f, 0f);
             anim.SetBool("isFalling", true);
             StartCoroutine(fall());
         }
@@ -61,6 +77,7 @@ public class playermove : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         anim.SetBool("isFalling", false);
         anim.SetBool("splat", true);
+        landing.PlayOneShot(landingGrass);
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("getUp", true);
         yield return new WaitForSeconds(3.5f);

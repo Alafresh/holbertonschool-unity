@@ -8,6 +8,8 @@ public class WinTrigger : MonoBehaviour
     public GameObject win;
     public Timer finish;
     public GameObject timerCanvas;
+    public AudioSource cheeryMonday;
+    public AudioSource piano;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "player")
@@ -16,6 +18,8 @@ public class WinTrigger : MonoBehaviour
             timerCanvas.SetActive(false);
             win.SetActive(true);
             finish.Win();
+            cheeryMonday.Stop();
+            piano.Play();
             //finish.Finish();
         }
     }
